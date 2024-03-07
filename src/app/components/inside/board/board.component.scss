@@ -1,0 +1,28 @@
+// Define custom variable for the RGB color
+$custom-blue: rgb(32, 62, 129);
+
+// Apply the custom color to the header
+header {
+  background-color: $custom-blue;
+}
+
+// Apply the custom color to the button
+button {
+    background-color: $custom-blue;
+    color: white; // Set default text color to white
+    border: 1px solid white; // Add a 1px solid white border
+    padding: 8px 16px; // Adjust padding as needed
+    border-radius: 4px; // Optional: Add border-radius for rounded corners
+    transition: color 0.3s ease; // Add a smooth transition for color change
+  
+    // Change text color to blue on hover
+    &:hover {
+        background-color: white;
+        color: $custom-blue;
+        border: 1px solid white;
+    }
+  }
+  .bg-rgb-32-62-129 {
+    background-color: rgb(32, 62, 129);
+  }
+  
