@@ -5,7 +5,7 @@
     >
       <div class="flex items-center">
         <a routerLink="/workspace" class="font-semibold" style="color: white;">
-          < Atras
+           Atras
         </a>
       </div>
       <div class="flex gap-4">
@@ -74,7 +74,7 @@
           *ngFor="let card of listCards[list.id]"
           (click)="editingCard(card, true)"
         >
-          <p class="h-10 py-2 px-2 bg-white" *ngIf="!editCard[card.id]">
+          <p class="h-15 py-2 px-2 bg-white inline-block" style="overflow:hidden; display: flex;" *ngIf="!editCard[card.id]">
             {{ card.title }}
           </p>
           <input
@@ -102,8 +102,7 @@
         </div>
         <div
           (click)="addCard(list)"
-          class="pt-8 text-gray-500 hover:cursor-pointer "
-        >
+          class="pt-8 text-gray-500 hover:cursor-pointer">
           + Agregar Tarjeta
         </div>
         <button

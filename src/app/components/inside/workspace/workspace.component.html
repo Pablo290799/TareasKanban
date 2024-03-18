@@ -35,7 +35,7 @@
     <li
       *ngFor="let board of boards"
       [routerLink]="board.boards.id"
-      class="relative min-h-52 h-auto rounded font-semibold text-sm py-4 px-4"
+      class="relative min-h-52 h-auto rounded font-semibold text-sm py-4 px-4 hover:cursor-pointer"
   style="background-color: rgb(32, 62, 129); color: white; "
     >
       {{ board.boards.title }}
