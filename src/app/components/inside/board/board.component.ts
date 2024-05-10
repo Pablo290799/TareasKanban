@@ -2,6 +2,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 
+import { CdkDragDrop, CdkDragEnd, moveItemInArray } from '@angular/cdk/drag-drop';
+
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -75,6 +77,41 @@ export class BoardComponent implements OnInit {
   async deleteBoardList(list: any) {
     await this.dataService.deleteBoardList(list);
   }
+
+  
+  onCardDropped(event: CdkDragDrop<any[]>, targetListId: string) {
+    if (event.previousContainer === event.container) {
+      // Reordenar dentro de la misma lista
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      // Mover la tarjeta a la lista de destino
+      const previousListId = event.previousContainer.id;
+      const card = event.item.data;
+      const currentIndex = event.currentIndex;
+  
+      // Eliminar la tarjeta de la lista anterior
+      this.listCards[previousListId] = this.listCards[previousListId].filter((c: { id: any; }) => c.id !== card.id);
+  
+      // Insertar la tarjeta en la lista de destino en la posición actual
+      this.listCards[targetListId].splice(currentIndex, 0, card);
+    }
+  }
+  
+  onCardDragEnded(event: any, listId: string) {
+    if (!event.item.dropContainer) {
+      // Si la tarjeta no se soltó en un contenedor, devolverla a su posición original
+      moveItemInArray(
+        this.listCards[listId],
+        event.currentIndex,
+        event.previousIndex
+      );
+    }
+  }
+
 
   //
   // CARDS logic

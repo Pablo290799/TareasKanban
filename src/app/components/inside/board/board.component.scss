@@ -25,4 +25,25 @@ button {
   .bg-rgb-32-62-129 {
     background-color: rgb(32, 62, 129);
   }
-  
+
+  /* Estilos para los elementos arrastrables */
+.cdk-drag {
+  cursor: grab;
+}
+
+/* Estilos para los contenedores de lista */
+.cdk-drop-list {
+  border: 2px dashed #ccc; /* Borde punteado como indicador visual */
+}
+
+/* Estilos durante el arrastre */
+.cdk-drag-preview {
+  background-color: #f0f0f0; /* Cambia el color de fondo del elemento arrastrado */
+  border: 2px solid #666; /* Añade un borde sólido al elemento arrastrado */
+}
+
+/* Estilos para el área de soltar */
+.cdk-drop-list-dragging {
+  background-color: #f0f0f0; /* Cambia el color de fondo del área de soltar */
+  border: 2px dashed #666; /* Añade un borde punteado al área de soltar */
+}

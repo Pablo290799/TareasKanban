@@ -43,7 +43,11 @@
     <!-- ITERATE ALL LISTS -->
     <div
       *ngFor="let list of lists"
-      class="relative min-h-52 h-auto rounded font-semibold text-sm py-4 px-4" style="background-color: rgb(32, 62, 129);"
+      class="relative min-h-52 h-auto rounded font-semibold text-sm py-4 px-4"
+      style="background-color: rgb(32, 62, 129);"
+      cdkDropList
+      [cdkDropListData]="listCards[list.id]"
+      (cdkDropListDropped)="onCardDropped($event, list.id)"
     >
       <div class="flex gap-2 pb-4">
         <p
@@ -72,6 +76,8 @@
         <div
           class="h-auto w-full flex flex-col gap-2 hover:cursor-pointer"
           *ngFor="let card of listCards[list.id]"
+          cdkDrag
+          [cdkDragData]="card"
           (click)="editingCard(card, true)"
         >
           <p class="h-15 py-2 px-2 bg-white inline-block" style="overflow:hidden; display: flex;" *ngIf="!editCard[card.id]">
