@@ -1,0 +1,44 @@
+<header style="background-color: rgb(32, 62, 129);">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="w-full py-6 flex items-center justify-between border-b border-emerald-500 lg:border-none">
+            <div class="flex items-center">
+                <a routerLink="/home">
+                    <img class="h-6 w-auto"
+                        src="https://www.pol.una.py/archivos/institucional/identidad/fpuna_logo_corporativo.svg"
+                        alt="" />
+                </a>
+            </div>
+            <div class="ml-10 space-x-4 flex items-center">
+                <span class="text-white">{{ (user | async)?.email }}</span>
+                <img ngxGravatar [email]="(user | async)?.email" />
+
+                <button (click)="signOut()"
+                    class="inline-block bg-white py-1 px-4 border border-transparent rounded-md text-base font-medium text-emerald-600 hover:bg-emerald-50">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>Demostracion</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>Espacio de trabajo 1</p>
+                    
+                    <mat-divider></mat-divider>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button routerLink="/home/workspace">ACCEDER</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>2</mat-grid-tile>
+      </mat-grid-list>
+    
+</main>

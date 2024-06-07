@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ) {
     this.auth.currentUser.subscribe((user) => {
       if (user) {
-        this.router.navigateByUrl('/workspace', { replaceUrl: true });
+        this.router.navigateByUrl('/home', { replaceUrl: true });
       }
     });
   }

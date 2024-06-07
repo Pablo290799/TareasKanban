@@ -4,6 +4,7 @@ import { WorkspaceComponent } from './components/inside/workspace/workspace.comp
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/inside/home/home.component';
 
 const routes: Routes = [
   {
@@ -11,12 +12,17 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'workspace',
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'home/workspace',
     component: WorkspaceComponent,
     canActivate: [AuthGuard],
   },
   {
-    path: 'workspace/:id',
+    path: 'home/workspace/:id',
     component: BoardComponent,
     canActivate: [AuthGuard],
   },

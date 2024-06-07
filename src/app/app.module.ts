@@ -11,6 +11,12 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { HomeComponent } from './components/inside/home/home.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -18,6 +24,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     LoginComponent,
     WorkspaceComponent,
     BoardComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,12 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     NgxSpinnerModule,
     BrowserAnimationsModule,
     FormsModule,
-    DragDropModule
+    DragDropModule,
+    MatProgressBarModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatCardModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -4,7 +4,7 @@
       class="w-full py-6 flex items-center justify-between border-b border-emerald-500 lg:border-none"
     >
       <div class="flex items-center">
-        <a routerLink="/workspace" class="font-semibold" style="color: white;">
+        <a routerLink="/home/workspace" class="font-semibold" style="color: white;">
            Atras
         </a>
       </div>
@@ -92,7 +92,7 @@
             <button
               class="font-medium"
               *ngIf="editCard[card.id]"
-              (click)="updateCard(card)"
+              (click)="updateCard(card);reloadPage()"
             >
               Actualizar
             </button>
@@ -100,20 +100,20 @@
             <button
               class="font-medium text-red-600"
               *ngIf="editCard[card.id]"
-              (click)="deleteCard(card)"
+              (click)="deleteCard(card);reloadPage()"
             >
               Borrar
             </button>
           </div>
         </div>
         <div
-          (click)="addCard(list)"
+          (click)="addCard(list);reloadPage()"
           class="pt-8 text-gray-500 hover:cursor-pointer">
           + Agregar Tarjeta
         </div>
         <button
         class="font-medium text-small text-red-700 hover:text-white" 
-          (click)="deleteBoardList(list)"
+          (click)="deleteBoardList(list);reloadPage()"
         >
           Eliminar Lista
         </button>
@@ -121,7 +121,7 @@
     </div>
 
     <div
-      (click)="addList()"
+      (click)="addList();reloadPage()"
       class="relative min-h-auto h-16 rounded font-semibold text-lg py-4 px-4"
   style="background-color: rgb(32, 62, 129); color: white; "
     >

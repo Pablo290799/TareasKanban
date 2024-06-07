@@ -18,6 +18,12 @@ export class WorkspaceComponent implements OnInit {
     private router: Router
   ) {}
 
+  reloadPage() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  }
+
   async ngOnInit() {
     this.boards = await this.dataService.getBoards();
     console.log('this.boards: ', this.boards);
@@ -30,7 +36,7 @@ export class WorkspaceComponent implements OnInit {
       const newBoard = this.boards.pop();
 
       if (newBoard.boards) {
-        this.router.navigateByUrl(`/workspace/${newBoard.boards.id}`);
+        this.router.navigateByUrl(`/home/workspace/${newBoard.boards.id}`);
       }
     }
   }

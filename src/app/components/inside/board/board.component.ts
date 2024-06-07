@@ -24,7 +24,7 @@ export class BoardComponent implements OnInit {
     private route: ActivatedRoute,
     private dataService: DataService,
     private router: Router
-  ) {}
+  ) { }
 
   async ngOnInit() {
     this.boardId = this.route.snapshot.paramMap.get('id');
@@ -48,11 +48,12 @@ export class BoardComponent implements OnInit {
   async saveBoardTitle() {
     await this.dataService.updateBoard(this.boardInfo);
     this.titleChanged = false;
+    window.location.reload();
   }
 
   async deleteBoard() {
     await this.dataService.deleteBoard(this.boardInfo);
-    this.router.navigateByUrl('/workspace');
+    this.router.navigateByUrl('/home/workspace');
   }
 
   //
@@ -78,7 +79,7 @@ export class BoardComponent implements OnInit {
     await this.dataService.deleteBoardList(list);
   }
 
-  
+
   onCardDropped(event: CdkDragDrop<any[]>, targetListId: string) {
     if (event.previousContainer === event.container) {
       // Reordenar dentro de la misma lista
@@ -92,15 +93,15 @@ export class BoardComponent implements OnInit {
       const previousListId = event.previousContainer.id;
       const card = event.item.data;
       const currentIndex = event.currentIndex;
-  
+
       // Eliminar la tarjeta de la lista anterior
       this.listCards[previousListId] = this.listCards[previousListId].filter((c: { id: any; }) => c.id !== card.id);
-  
+
       // Insertar la tarjeta en la lista de destino en la posición actual
       this.listCards[targetListId].splice(currentIndex, 0, card);
     }
   }
-  
+
   onCardDragEnded(event: any, listId: string) {
     if (!event.item.dropContainer) {
       // Si la tarjeta no se soltó en un contenedor, devolverla a su posición original
@@ -116,11 +117,17 @@ export class BoardComponent implements OnInit {
   //
   // CARDS logic
   //
+  reloadPage() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  }
+
   async addCard(list: any) {
     await this.dataService.addListCard(
       list.id,
       this.boardId!,
-      this.listCards[list.id].length
+      this.listCards[list.id].length,
     );
   }
 
