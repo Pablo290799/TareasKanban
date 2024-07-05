@@ -1,0 +1,27 @@
+<header style="background-color: rgb(32, 62, 129);">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="w-full py-6 flex items-center justify-between border-b border-emerald-500 lg:border-none">
+            <div class="flex items-center">
+                <a routerLink="/home">
+                    <img class="h-6 w-auto"
+                        src="https://www.pol.una.py/archivos/institucional/identidad/fpuna_logo_corporativo.svg"
+                        alt="" />
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container mt-5">
+    <h1>Crear Usuario</h1>
+    <form (ngSubmit)="saveUser()" class="row g-3">
+        <div class="col-md-6">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" id="inputEmail" class="form-control" [(ngModel)]="user.email" name="email" required>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary"
+                style="background-color: #0d6efd; border-color: #0d6efd;">Guardar</button>
+        </div>
+    </form>
+</div>

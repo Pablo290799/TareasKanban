@@ -18,6 +18,11 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 
+import { UserListComponent } from './components/users/user-list/user-list.component';
+import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
+import { UserFormComponent } from './components/users/user-form/user-form.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +30,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     WorkspaceComponent,
     BoardComponent,
     HomeComponent,
+    UserListComponent,
+    UserFormComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

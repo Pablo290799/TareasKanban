@@ -12,8 +12,13 @@
                 <span class="text-white">{{ (user | async)?.email }}</span>
                 <img ngxGravatar [email]="(user | async)?.email" />
 
+                <button routerLink="/users"
+                    class="inline-block bg-gray-400 py-1 px-4 border border-transparent rounded-md text-base font-medium text-emerald-600 hover:bg-emerald-50">
+                    Usuarios
+                </button>
+                
                 <button (click)="signOut()"
-                    class="inline-block bg-white py-1 px-4 border border-transparent rounded-md text-base font-medium text-emerald-600 hover:bg-emerald-50">
+                    class="inline-block bg-gray-400 py-1 px-4 border border-transparent rounded-md text-base font-medium text-emerald-600 hover:bg-emerald-50">
                     Cerrar sesión
                 </button>
             </div>
@@ -30,7 +35,7 @@
                 </mat-card-header>
                 <mat-card-content>
                     <p>Espacio de trabajo</p>
-                    
+
                     <mat-divider></mat-divider>
                 </mat-card-content>
                 <mat-card-actions>
@@ -39,6 +44,6 @@
             </mat-card>
         </mat-grid-tile>
         <mat-grid-tile></mat-grid-tile>
-      </mat-grid-list>
-    
+    </mat-grid-list>
+
 </main>
